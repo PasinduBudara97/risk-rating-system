@@ -1,3 +1,8 @@
+import pandas as pd
+from pandas import ExcelWriter
+from pandas import ExcelFile
+
+
 class Calculation:
     def __init__(self,name,crib,):
         self.name=name
