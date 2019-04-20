@@ -78,7 +78,7 @@ class Calculation:
             purposeScore=30
         elif(purpose=="Working Capital "):
             purposeScore=20
-        elif(purpose=="Redemption of Loans"):
+        elif(purpose=="Redemption"):
             purposeScore=10
         else:
             purposeScore=20
