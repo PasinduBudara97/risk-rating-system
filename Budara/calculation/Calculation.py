@@ -20,10 +20,40 @@ exp=df['period of service']
 assets=df['Total assets']
 loan=df['Loan Amount']
 
+
+
+dd=pd.read_excel('test.xlsx',sheet_name='Sheet1')
+sExp=dd['experience']
+sEntity=dd['entity']
+sPurpose=dd['purpose']
+sSecurity=dd['security']
+sGear=dd['gear']
+
+
+
+
 size=len(businessExp)
 print(businessExp)
-
-
+def funInterestRate():
+    i=0
+    k=1
+    worksheet.write(0,6,"Interest")
+    while i<size:
+        marks = sEntity[i] + sExp[i] + sGear[i] + sPurpose[i] + sSecurity[i]
+        if (marks == 0):
+            percent = 0
+        elif (marks < 120):
+            percent = 1
+        elif (marks < 180):
+            percent = 1.5
+        elif (marks < 270):
+            percent = 2
+        elif (marks < 350):
+            percent = 2
+        worksheet.write(k,6,percent)
+        k+=1
+        i+=1
+    print("Gearing successful")
 
 def funBusinessExperience(businessExp):
     i=0
@@ -185,6 +215,7 @@ funEntityTax(entity, tax)
 funLoanPurpose(purpose)
 funSecurity(security)
 funGearingRatio(assets,loan)
+funInterestRate()
 writer.close()
 
 
