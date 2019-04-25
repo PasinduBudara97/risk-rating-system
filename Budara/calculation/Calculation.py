@@ -17,17 +17,19 @@ tax=df['tax paying']
 purpose=df['Purpose of Loan']
 security=df['Security type']
 exp=df['period of service']
+assets=df['Total assets']
+loan=df['Loan Amount']
 
 size=len(businessExp)
 print(businessExp)
 
 
 
-
 def funBusinessExperience(businessExp):
     i=0
+    k=1
     row = 0
-
+    worksheet.write(0,1,"experience")
     while i<size:
         print(businessExp[i])
         if(businessExp[i]<1.0):
@@ -42,8 +44,8 @@ def funBusinessExperience(businessExp):
             expScore=50
         print(expScore)
 
-        worksheet.write(i,1,expScore)
-
+        worksheet.write(k,1,expScore)
+        k+=1
         i+=1
     #writer.close()
     print("hiiiiiiiiiiiiiii")
@@ -54,7 +56,8 @@ def funBusinessExperience(businessExp):
 def funEntityTax(entity,tax):
     i=0
     row = 0
-
+    k=1
+    worksheet.write(0, 2, "entity")
     while i<size:
         if ((entity[i] == "Individual person") & (tax[i] == "Yes")):
             score = 40
@@ -64,14 +67,17 @@ def funEntityTax(entity,tax):
             score = 40
         elif ((entity[i] == "Business/SME") & (tax[i] == "No")):
             score = 20
-        worksheet.write(i, 2, score)
+        worksheet.write(k, 2, score)
         i += 1
+        k+=1
 
     print("Successfully added entity and tax" )
 
 
 def funLoanPurpose(purpose):
     i=0
+    k=1
+    worksheet.write(0, 3, "purpose")
     while i<size:
         if (purpose[i] == "Construction"):
             escore = 40
@@ -95,13 +101,16 @@ def funLoanPurpose(purpose):
             escore = 20
         elif (purpose[i] == "Purchasing Of Building Block"):
             escore = 30
-        worksheet.write(i, 3, escore)
+        worksheet.write(k, 3, escore)
         i += 1
+        k+=1
     print("Successfully added purpose")
 
 
 def funSecurity(security):
     i=0
+    k=1
+    worksheet.write(0, 4, "security")
     while i<size:
         if (security[i] == "Mortgage"):
             score = 100
@@ -121,36 +130,61 @@ def funSecurity(security):
             score = 20
         elif (security[i] == "EPF"):
             score = 20
-        worksheet.write(i, 4, score)
+        worksheet.write(k, 4, score)
         i += 1
+        k+=1
 
     print("successfully added security")
 
 
-def funExperience(exp):
+# def funExperience(exp):
+#     i=0
+#
+#     while i<size:
+#         if (exp[i] < 1):
+#             score = 0
+#         elif (exp[i] <= 2):
+#             score = 20
+#         elif (exp[i] <= 3):
+#             score = 30
+#         elif (exp[i] <= 4):
+#             score = 40
+#         elif (exp[i] > 4):
+#             score = 50
+#         worksheet.write(i, 5, score)
+#         i += 1
+#
+#     print("successfully added experience")
+
+def funGearingRatio(assets,loan):
     i=0
-
+    k=1
+    worksheet.write(0, 5, "gear")
     while i<size:
-        if (exp[i] < 1):
-            score = 0
-        elif (exp[i] <= 2):
-            score = 20
-        elif (exp[i] <= 3):
-            score = 30
-        elif (exp[i] <= 4):
-            score = 40
-        elif (exp[i] > 4):
-            score = 50
-        worksheet.write(i, 5, score)
-        i += 1
+        gearing=(loan[i]/assets[i])*100
+        if((gearing>80)&(gearing<100)):
+            score=20
+        elif((gearing>70)&(gearing<80)):
+            score=50
+        elif ((gearing > 60) & (gearing < 70)):
+            score = 70
+        elif ((gearing > 50) & (gearing < 60)):
+            score = 100
+        elif ((gearing > 0) & (gearing < 50)):
+            score = 100
+        worksheet.write(k,5,score)
+        i+=1
+        k+=1
+    print("Successfully added gearing ratio")
 
-    print("successfully added experience")
+
+
 
 funBusinessExperience(businessExp)
 funEntityTax(entity, tax)
-funExperience(exp)
 funLoanPurpose(purpose)
 funSecurity(security)
+funGearingRatio(assets,loan)
 writer.close()
 
 
