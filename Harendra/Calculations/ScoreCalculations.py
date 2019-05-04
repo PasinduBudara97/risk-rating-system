@@ -23,5 +23,4 @@ def funDebtServiceCovergae(debt):
                 debtScore = 75
             elif (debt < 2.50):
                 debtScore = 100
-            elif (debt < 100):
-                debtScore = 100
+
