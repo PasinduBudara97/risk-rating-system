@@ -116,6 +116,12 @@ tList=(ammount[0]/sum,period[0]/sum,emi[0]/sum,newPOL/sum,newSecurity/sum,newCRI
 testdata=pd.DataFrame(tList)
 tList=np.array(tList)
 tList=tList.reshape(1,-1)
-p=loaded_model.predict(tList)	
+p=loaded_model.predict(tList)
+
+jj=None
+if(p[0]=="Notok"):
+    jj="Notok"
+elif(p[0]=="ok"):
+    jj="ok"	
 
 
