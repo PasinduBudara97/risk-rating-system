@@ -111,6 +111,11 @@ sum=0
 for i in range(len(getData)):
     sum=sum+getData[i]
 tList=(ammount[0]/sum,period[0]/sum,emi[0]/sum,newPOL/sum,newSecurity/sum,newCRIB/sum,newTOE/sum,POS[0]/sum,assets[0]/sum,loanI[0]/sum,newTax/sum)
-	
+
+
+testdata=pd.DataFrame(tList)
+tList=np.array(tList)
+tList=tList.reshape(1,-1)
+p=loaded_model.predict(tList)	
 
 
