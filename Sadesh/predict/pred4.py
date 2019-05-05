@@ -123,5 +123,10 @@ if(p[0]=="Notok"):
     jj="Notok"
 elif(p[0]=="ok"):
     jj="ok"	
+	
+f= open(savedfile,"w+")
+f.write(jj)
+f.close() 
+	
 
 
