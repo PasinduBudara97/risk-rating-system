@@ -89,5 +89,20 @@ elif(sample==None):
     newCRIB=5
 else:
     newCRIB=0
+	
+
+sample=TOE[0]
+if(sample=="Business/SME"):
+    newTOE=0
+elif(sample=="Individual person") :
+    newTOE=1
+elif(sample=="Corporate Entity"):
+    newTOE=2
+
+sample=tax[0]
+if(sample=="Yes"):
+    newTax=0
+elif(sample=="No") :
+    newTax=1	
 
 
