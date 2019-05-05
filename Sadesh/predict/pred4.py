@@ -103,6 +103,14 @@ sample=tax[0]
 if(sample=="Yes"):
     newTax=0
 elif(sample=="No") :
-    newTax=1	
+    newTax=1
+
+               
+getData=[ammount,period,emi,newPOL,newSecurity,newCRIB,newTOE,POS,assets,loanI,newTax]
+sum=0
+for i in range(len(getData)):
+    sum=sum+getData[i]
+tList=(ammount[0]/sum,period[0]/sum,emi[0]/sum,newPOL/sum,newSecurity/sum,newCRIB/sum,newTOE/sum,POS[0]/sum,assets[0]/sum,loanI[0]/sum,newTax/sum)
+	
 
 
