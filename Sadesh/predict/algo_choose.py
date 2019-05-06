@@ -61,4 +61,10 @@ for k in range(1476):
         tot=float(tot)+x[j]
     x=[int(getData[0][i])/tot,int(getData[1][i])/tot,int(getData[2][i])/tot,int(getData[3][k])/tot,int(getData[4][k])/tot,int(getData[5][k])/tot,int(getData[6][k])/tot,int(getData[7][i])/tot,int(getData[8][i])/tot,int(getData[9][i])/tot,int(getData[10][k])/tot,'ok']
     list2.append(x)
+	
+list=list1+list2
+totPred=0
+cp=0
+model=None
+for i in range(10):	
 
