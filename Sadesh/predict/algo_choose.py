@@ -49,3 +49,7 @@ getData=[ammount,period,emi,newPOL,newSecurity,newCRIB,newTOE,POS,assets,loanI,n
 list2=[]
 k=0
 for k in range(1476):
+	 i=k+1
+    x=[int(getData[0][i]),int(getData[1][i]),int(getData[2][i]),int(getData[3][k]),int(getData[4][k]),int(getData[5][k]),int(getData[6][k]),int(getData[7][i]),int(getData[8][i]),int(getData[9][i]),int(getData[10][k])]
+    if(k==0):
+        print(x)
