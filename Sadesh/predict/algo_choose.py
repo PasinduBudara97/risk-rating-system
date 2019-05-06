@@ -45,3 +45,7 @@ setTOE(TOE)
 setTax(tax)
 
 getData=[ammount,period,emi,newPOL,newSecurity,newCRIB,newTOE,POS,assets,loanI,newTax]
+
+list2=[]
+k=0
+for k in range(1476):
