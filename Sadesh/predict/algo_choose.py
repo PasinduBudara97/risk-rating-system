@@ -76,4 +76,16 @@ for i in range(10):
     model.fit(X_train,Y_train)
     pred=model.score(X_test,Y_test) 
     if(pred>cp):
+		    cp=pred
+        filename = '/home/Desktop/finalizedModel.sav'
+        pickle.dump(model, open(filename, 'wb'))
+    totPred=pred+totPred
+    print("Accuracy :",pred)
+
+print("") 
+print("Algorithm : KNN")
+print("Train Data Count : ",len(X_train))
+print("Test Data Count : ",len(X_test))
+print("Accuracy :",cp)
+
 
