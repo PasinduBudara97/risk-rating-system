@@ -36,3 +36,10 @@ assets=df['Total assets']
 loanI=df['loan installments']
 tax=df['tax paying']
 newTax=[]
+
+
+setPOL(POL)
+setSecurity(security)
+setCRIB(CRIB)            
+setTOE(TOE)
+setTax(tax)
