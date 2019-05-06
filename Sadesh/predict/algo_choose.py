@@ -43,3 +43,5 @@ setSecurity(security)
 setCRIB(CRIB)            
 setTOE(TOE)
 setTax(tax)
+
+getData=[ammount,period,emi,newPOL,newSecurity,newCRIB,newTOE,POS,assets,loanI,newTax]
