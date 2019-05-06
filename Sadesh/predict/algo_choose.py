@@ -67,4 +67,13 @@ totPred=0
 cp=0
 model=None
 for i in range(10):	
+	 shuffle(list)
+    bigData=pd.DataFrame(list,columns=['','','','','','','','','','','','label'])
+    target=bigData['label']
+    from sklearn.model_selection import  train_test_split
+    X_train,X_test,Y_train,Y_test=train_test_split(bigData.drop(['label'],axis='columns'),target,test_size=0.2)
+    model = KNeighborsClassifier(n_neighbors=30)
+    model.fit(X_train,Y_train)
+    pred=model.score(X_test,Y_test) 
+    if(pred>cp):
 
